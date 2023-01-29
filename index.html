@@ -10,26 +10,31 @@
 </head>
 <body>
     <main>
+        <section id="art">
+            <h1>Calculadora <br><span>em JavaScript!</span></h1>
+            <img src="illustration.webp" alt="illustration">
+        </section>
+
         <section id="calc">
             <div id="display"></div>
-            <button onclick= calculator.ac()>AC</button>
+            <button class="btAC" onclick= calculator.ac()>AC</button>
             <button onclick= calculator.del()>DEL</button>
-            <button onclick= calculator.division()>/</button>
-            <button onclick = calculator.nextNum(1)>1</button>
-            <button onclick = calculator.nextNum(2)>2</button>
-            <button onclick = calculator.nextNum(3)>3</button>
-            <button onclick= calculator.multiplication()>*</button>
-            <button onclick = calculator.nextNum(4)>4</button>
-            <button onclick = calculator.nextNum(5)>5</button>
-            <button onclick = calculator.nextNum(6)>6</button>
-            <button onclick= calculator.addition()>+</button>
-            <button onclick = calculator.nextNum(7)>7</button>
-            <button onclick = calculator.nextNum(8)>8</button>
-            <button onclick = calculator.nextNum(9)>9</button>
-            <button onclick= calculator.subtraction()>-</button>
+            <button id="btOp" onclick= calculator.division()>/</button>
+            <button id="btNum" class="num1" onclick = calculator.nextNum(1)>1</button>
+            <button id="btNum" class="num2" onclick = calculator.nextNum(2)>2</button>
+            <button id="btNum" class="num3" onclick = calculator.nextNum(3)>3</button>
+            <button id="btOp" onclick= calculator.multiplication()>*</button>
+            <button id="btNum" class="num4" onclick = calculator.nextNum(4)>4</button>
+            <button id="btNum" class="num5" onclick = calculator.nextNum(5)>5</button>
+            <button id="btNum" class="num6" onclick = calculator.nextNum(6)>6</button>
+            <button id="btOp" onclick= calculator.addition()>+</button>
+            <button id="btNum" class="num7" onclick = calculator.nextNum(7)>7</button>
+            <button id="btNum" class="num8" onclick = calculator.nextNum(8)>8</button>
+            <button id="btNum" class="num9" onclick = calculator.nextNum(9)>9</button>
+            <button id="btOp" onclick= calculator.subtraction()>-</button>
             <button onclick = calculator.nextNum('.')>,</button>
-            <button onclick = calculator.nextNum(0)>0</button>
-            <button onclick= calculator.equals()>=</button>
+            <button id="btNum" class="num0" onclick = calculator.nextNum(0)>0</button>
+            <button class="btEquals" onclick= calculator.equals()>=</button>
         </section>
     </main>
 

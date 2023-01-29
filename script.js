@@ -71,7 +71,7 @@ let calculator = {
     display : function(){
         switch(state){
             case 'started':
-                document.getElementById("display").innerText = "Calculadora";
+                document.getElementById("display").innerText = "Insira um valor";
                 state = 'operating1';
                 break;
             case 'operating1':
