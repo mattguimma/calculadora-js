@@ -1,4 +1,4 @@
-var state, op1, op2, result, operation;
+var state, op1, op2, result, operation, opsymbol, histindex = 0;
 
 let calculator = {
     numArray : new Array(),
@@ -10,24 +10,28 @@ let calculator = {
 
     addition : function(){
         operation = "addition";
+        opsymbol = "+";
         state = "operating2"
         this.numArray=[];
     },
 
     subtraction : function(){
         operation = "subtraction";
+        opsymbol = "-";
         state = "operating2"
         this.numArray=[];
     },
 
     multiplication : function(){
         operation = "multiplication";
+        opsymbol = "*";
         state = "operating2"
         this.numArray=[];
     },
 
     division : function(){
         operation = "division";
+        opsymbol = "/";
         state = "operating2"
         this.numArray=[];
     },
@@ -47,21 +51,25 @@ let calculator = {
         switch(operation){
             case 'addition':
                 result = op1 + op2;
+                op1 = result;
                 state = "result";
                 this.display();
                 break;
             case 'subtraction':
                 result = op1 - op2;
+                op1 = result;
                 state = "result";
                 this.display();
                 break;
             case 'multiplication':
                 result = op1 * op2;
+                op1 = result;
                 state = "result";
                 this.display();
                 break;
             case 'division':
                 result = op1 / op2;
+                op1 = result;
                 state = "result";
                 this.display();
                 break;
@@ -78,10 +86,11 @@ let calculator = {
                 document.getElementById("display").innerText = op1;
                 break;
             case 'operating2':
-                document.getElementById("display").innerText = op2;
+                document.getElementById("display").innerText =  op1 + " " + opsymbol + " " + op2;
                 break;
             case 'result':
                 document.getElementById("display").innerText = result;
+                this.history();
                 break;
         }
     },
@@ -99,5 +108,11 @@ let calculator = {
                 this.display();
                 break;
         }
+    },
+
+    history : function(){
+        document.getElementsByClassName("histNum" + histindex).innerText = result;
+        console.log("histNum" + histindex);
+        histindex++;
     }
 }
