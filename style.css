@@ -37,7 +37,6 @@ main{
 
 button{
     background-color: #BFACE2;
-    font-size: 2rem;
     border: none;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -53,16 +52,31 @@ button:active{
     color:white;
 }
 
+#calc button{
+    font-size: 2rem;
+}
+
 .btAC, .btEquals{
     grid-column: span 2;
 }
 
 #hist{
     height: 55vh;
-    display: flex;
-    flex-direction: column;
     font-family: 'Poppins', sans-serif;
     color: white;
+}
+
+#hist .histtop{
+    display: flex;
+    justify-content: space-between;
+}
+
+.histtop button{
+    font-size: 1rem;
+    height: min-content;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 #title{
@@ -86,15 +100,23 @@ button:active{
     height: 200px;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 #hist p{
     font-size: 1.5rem;
     margin-top: 35px;
-    margin-left: 25px;
+    margin-left: 40px;
 }
 
-#hist span{
-    visibility: hidden;
-    margin-left: 25px;
+#hist #histlist{
+    height: 40vh;
+    overflow-y: scroll;
+}
+
+#hist #histlist li{
+    list-style-type: none;
     margin-bottom: 5px;
     border-bottom: 1px solid white;
 }
@@ -108,4 +130,60 @@ button:active{
     font-size: 2rem;
     text-decoration: none;
     color: white;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        min-height: 150vh;
+    }
+
+    #calc{
+        grid-template-columns: repeat(4,200px);
+        grid-template-rows: minmax(150px, auto) repeat(5, 80px);
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (max-device-width: 609px) {
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    #calc{
+        grid-template-columns: repeat(4,80px);
+        grid-template-rows: minmax(90px, auto) repeat(5, 105px);
+        margin-bottom: 40px;
+    }
+
+    #display{
+        font-size: 1.5rem;
+    }
+
+    #hist p{
+        font-size: 1.2rem;
+        margin-top: 35px;
+        margin-left: 0px;
+    }
+
+    #title h1{
+        font-size: 2.5rem;
+        line-height: 1rem;
+        margin-left: 0px;
+    }
+    
+    #title span{
+        font-size: 1.3rem;
+        line-height: 3px;
+    }
+    
+
+    #title img{
+        display: none;
+        padding: 5px;
+    }
 }

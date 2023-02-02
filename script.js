@@ -1,4 +1,4 @@
-var state, op1, op2, result, operation, opsymbol, histindex = 0;
+var state, op1, op2, result, operation, opsymbol, equation, histcont = 0, histlist = " ";;
 
 let calculator = {
     numArray : new Array(),
@@ -51,24 +51,28 @@ let calculator = {
         switch(operation){
             case 'addition':
                 result = op1 + op2;
+                equation = op1 + " + " + op2 + " = " + result;
                 op1 = result;
                 state = "result";
                 this.display();
                 break;
             case 'subtraction':
                 result = op1 - op2;
+                equation = op1 + " - " + op2 + " = " + result;
                 op1 = result;
                 state = "result";
                 this.display();
                 break;
             case 'multiplication':
                 result = op1 * op2;
+                equation = op1 + " x " + op2 + " = " + result;
                 op1 = result;
                 state = "result";
                 this.display();
                 break;
             case 'division':
                 result = op1 / op2;
+                equation = op1 + " ÷ " + op2 + " = " + result;
                 op1 = result;
                 state = "result";
                 this.display();
@@ -111,8 +115,16 @@ let calculator = {
     },
 
     history : function(){
-        document.getElementsByClassName("histNum" + histindex).innerText = result;
-        console.log("histNum" + histindex);
-        histindex++;
+        var liResult = "<li class='result"+ histcont +"'>" + equation + "</li>";
+        histlist += liResult;
+        document.getElementById("histlist").innerHTML = histlist;
+        
+        histcont++;
+    },
+
+    eraseHist : function(){
+        histlist = " ";
+        document.getElementById("histlist").innerHTML = histlist;
+        histcont = 0;
     }
 }
